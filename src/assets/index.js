@@ -23,7 +23,7 @@ import reactquery from "./tech/reactquery.jpg";
 import zustand from "./tech/zustand.jpg";
 import dart from "./tech/dart.png";
 import mui from "./tech/mui.png";
-import bootstrap from "./tech/bootstrapp.jpg";
+import bootstrap from "./tech/bootstrap.jpg";
 import flutter from "./tech/flutter.png";
 import threejs from "./tech/threejs.svg";
 import firebase from "./tech/firebase.png";
