@@ -27,9 +27,9 @@ import {
   doc,
   movie,
 } from "../assets";
-import admin from "../assets/Screenshot (197).png";
-import mawqaf from "../assets/Screenshot (203).png";
-import mawqafWebsite from "../assets/Screenshot (221).png";
+import admin from "../assets/admin-dashboard.png";
+import mawqaf from "../assets/mawqaf-mobile.png";
+import mawqafWebsite from "../assets/mawqaf-website.png";
 
 export const navLinks = [
   {
