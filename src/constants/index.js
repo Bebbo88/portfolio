@@ -188,7 +188,7 @@ const projects = [
       },
     ],
     image: mawqafWebsite,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Bebbo88/ITI-final-project",
   },
   {
     name: "Mawqaf Flutter Mobile",
@@ -244,7 +244,7 @@ const projects = [
       },
     ],
     image: admin,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Bebbo88/Dashboard",
   },
 
   {
