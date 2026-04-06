@@ -15,10 +15,10 @@ const Earth = () => {
 const EarthCanvas = () => {
   return (
     <Canvas
-      shadows
+      shadows={false}
       frameloop="demand"
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 1.5]}
+      gl={{ preserveDrawingBuffer: false, antialias: false, powerPreference: "high-performance" }}
       camera={{
         fov: 45,
         near: 0.1,

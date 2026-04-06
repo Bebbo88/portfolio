@@ -7,16 +7,9 @@ import {
   html,
   css,
   reactjs,
-  redux,
   tailwind,
   git,
-  meta,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
-  reactquery,
-  zustand,
+  creator,
   bootstrap,
   mui,
   flutter,
@@ -26,7 +19,10 @@ import {
   food,
   doc,
   movie,
+  pharaonxImg,
+  ashperoImg,
 } from "../assets";
+import pharaonxLogo from "../assets/certf/logo.svg";
 import admin from "../assets/admin-dashboard.png";
 import mawqaf from "../assets/mawqaf-mobile.png";
 import mawqafWebsite from "../assets/mawqaf-website.png";
@@ -82,18 +78,6 @@ const technologies = [
     name: "React JS",
     icon: reactjs,
   },
-  // {
-  //   name: "React Query",
-  //   icon: reactquery,
-  // },
-  // {
-  //   name: "Zustand",
-  //   icon: zustand,
-  // },
-  // {
-  //   name: "Redux Toolkit",
-  //   icon: redux,
-  // },
   {
     name: "Bootstrap CSS",
     icon: bootstrap,
@@ -114,11 +98,6 @@ const technologies = [
     name: "Dart",
     icon: dart,
   },
-
-  // {
-  //   name: "Three JS",
-  //   icon: threejs,
-  // },
   {
     name: "Firebase",
     icon: firebase,
@@ -133,15 +112,29 @@ const experiences = [
   {
     title: "Front End & Cross Platform Trainee",
     company_name: "Information Technology Institute (ITI)",
-    icon: meta,
+    icon: creator,
     iconBg: "#383E56",
-    date: "July 2025 - Decemper 2025",
+    date: "July 2025 - December 2025",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
+  },
+  {
+    title: "Front End Developer",
+    company_name: "PharaonX",
+    icon: pharaonxLogo,
+    iconBg: "#E6DEDD",
+    date: "October 2025 - March 2026",
+    points: [
+      "Built and maintained React-based web interfaces for the PharaonX platform.",
+      "Collaborated closely with designers and backend teams to deliver pixel-perfect, responsive UIs.",
+      "Optimized web performance and ensured cross-browser compatibility across all major browsers.",
+      "Implemented modern UX patterns and reusable component architecture using React.js.",
+    ],
+    logoPath: "/certificates/pharaonx-logo.png", // fallback path
   },
 ];
 
@@ -174,6 +167,50 @@ const testimonials = [
 
 const projects = [
   {
+    name: "PharaonX Website",
+    description:
+      "A professional corporate website for PharaonX, built with a modern design system. Features smooth animations, responsive layout, and a polished user experience reflecting the brand identity.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "green-text-gradient",
+      },
+      {
+        name: "framer-motion",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: pharaonxImg,
+    source_code_link: "https://github.com/Bebbo88",
+    live_demo_link: "https://pharaonx.netlify.app/",
+  },
+  {
+    name: "Ashpero Skincare",
+    description:
+      "An elegant e-commerce skincare platform with a clean, product-focused UI. Designed to deliver a premium shopping experience with detailed product pages, cart functionality, and smooth transitions.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css",
+        color: "green-text-gradient",
+      },
+      {
+        name: "ecommerce",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: ashperoImg,
+    source_code_link: "https://github.com/Bebbo88",
+    live_demo_link: "", // To be added later
+  },
+  {
     name: "Mawqaf Website",
     description:
       "A responsive website for Mawqaf services, providing users with information about parking locations, pricing, and membership options.",
@@ -189,6 +226,7 @@ const projects = [
     ],
     image: mawqafWebsite,
     source_code_link: "https://github.com/Bebbo88/ITI-final-project",
+    live_demo_link: "https://iti-final-project-pi.vercel.app/",
   },
   {
     name: "Mawqaf Flutter Mobile",
@@ -206,12 +244,12 @@ const projects = [
     ],
     image: mawqaf,
     source_code_link: "https://github.com/",
+    live_demo_link: "https://appetize.io/app/b_4yihqzyqg7kc3vtfryui25qxbu",
   },
 
   {
     name: "Shop Online",
-    description: `It’s a fully responsive eCommerce website built with React.js, featuring authentication, cart, wishlist, and online payment. This project improved my skills in React architecture, API handling.
-`,
+    description: `It's a fully responsive eCommerce website built with React.js, featuring authentication, cart, wishlist, and online payment. This project improved my skills in React architecture, API handling.`,
     tags: [
       {
         name: "react",
@@ -228,11 +266,12 @@ const projects = [
     ],
     image: shop,
     source_code_link: "https://github.com/Bebbo88/Ecommerce",
+    live_demo_link: "https://ecommerceshop-fawn.vercel.app/",
   },
   {
     name: "Admin Dashboard",
     description:
-      "A comprehensive admin dashboard for managing users, products, and orders. Features include real-time data visualization, user role management, and detailed reporting.                                                                     ",
+      "A comprehensive admin dashboard for managing users, products, and orders. Features include real-time data visualization, user role management, and detailed reporting.",
     tags: [
       {
         name: "react",
@@ -245,12 +284,12 @@ const projects = [
     ],
     image: admin,
     source_code_link: "https://github.com/Bebbo88/Dashboard",
+    live_demo_link: "https://dashboard-blond-delta-68.vercel.app/",
   },
 
   {
     name: "Foodac",
-    description: `Developed a modern and responsive food delivery web app with a clean UI built using React.js and Tailwind CSS. Focused on reusable components, responsive design, and smooth user experience. Integrated routing and dynamic content for interactive navigation.
-`,
+    description: `Developed a modern and responsive food delivery web app with a clean UI built using React.js and Tailwind CSS. Focused on reusable components, responsive design, and smooth user experience.`,
     tags: [
       {
         name: "react",
@@ -267,12 +306,11 @@ const projects = [
     ],
     image: food,
     source_code_link: "https://github.com/Bebbo88/Foodac-WebApp",
+    live_demo_link: "",
   },
   {
     name: "DocDoc",
-    description: `A full appointment-booking web application built using React and Tailwind CSS.
-The project allows users to browse doctors, view profiles, check available time slots, and book appointments easily.
-It includes dynamic routing, responsive UI, and clean state management across the entire system.`,
+    description: `A full appointment-booking web application built using React and Tailwind CSS. Allows users to browse doctors, view profiles, check available time slots, and book appointments easily.`,
     tags: [
       {
         name: "react",
@@ -285,6 +323,7 @@ It includes dynamic routing, responsive UI, and clean state management across th
     ],
     image: doc,
     source_code_link: "https://github.com/Bebbo88/Appointment-Web-App",
+    live_demo_link: "",
   },
   {
     name: "Shahidny",
@@ -298,6 +337,7 @@ It includes dynamic routing, responsive UI, and clean state management across th
     image: movie,
     source_code_link:
       "https://github.com/Bebbo88/Movies-APP-using-React-Native",
+    live_demo_link: "",
   },
 ];
 

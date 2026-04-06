@@ -15,6 +15,23 @@
   color-scheme: dark;
 }
 
+/* Performance: contain sections to reduce layout recalculations */
+section {
+  contain: layout style;
+}
+
+/* Smooth scroll on iOS */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* GPU compositing for animated elements */
+.card-img_hover,
+.canvas-loader {
+  will-change: transform;
+}
+
+
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
@@ -33,6 +50,16 @@
     #434343,
     #000000
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.live-demo-btn {
+  background: linear-gradient(135deg, #915eff 0%, #5d3fd3 100%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.live-demo-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(145, 94, 255, 0.6);
 }
 
 .violet-gradient {

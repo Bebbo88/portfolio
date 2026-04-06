@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -14,7 +14,7 @@ const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
+    <Float speed={1.5} rotationIntensity={0.8} floatIntensity={1.5}>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
@@ -38,19 +38,49 @@ const Ball = (props) => {
 };
 
 const BallCanvas = ({ icon }) => {
-  return (
-    <Canvas
-      frameloop="demand"
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-      </Suspense>
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-      <Preload all />
-    </Canvas>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // once visible, stop observing
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="w-full h-full">
+      {isVisible ? (
+        <Canvas
+          frameloop="demand"
+          dpr={[1, 1.5]}
+          gl={{ preserveDrawingBuffer: false, antialias: false }}
+        >
+          <Suspense fallback={<CanvasLoader />}>
+            <OrbitControls enableZoom={false} />
+            <Ball imgUrl={icon} />
+          </Suspense>
+          <Preload all />
+        </Canvas>
+      ) : (
+        <img
+          src={icon}
+          alt="tech"
+          className="w-full h-full object-contain opacity-70"
+        />
+      )}
+    </div>
   );
 };
 

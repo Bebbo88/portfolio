@@ -15,12 +15,13 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_demo_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.3, 0.6)}>
       <Tilt
         options={{
-          max: 45,
+          max: 35,
           scale: 1,
           speed: 450,
         }}
@@ -31,12 +32,36 @@ const ProjectCard = ({
             src={image}
             alt="project_image"
             className="w-full h-full object-cover rounded-2xl"
+            loading="lazy"
           />
 
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+          <div className="absolute inset-0 flex justify-end m-3 card-img_hover gap-2">
+            {live_demo_link && (
+              <div
+                onClick={() => window.open(live_demo_link, "_blank")}
+                className="live-demo-btn w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+                title="Live Demo"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-white"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
+            )}
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              title="Source Code"
             >
               <img
                 src={github}

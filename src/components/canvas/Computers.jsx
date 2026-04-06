@@ -15,7 +15,7 @@ const Computers = ({ isMobile }) => {
         angle={0.15}
         penumbra={1}
         intensity={2}
-        castShadow
+        castShadow={false}
       />
       <pointLight intensity={1.2} />
 
@@ -31,30 +31,39 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isVerySmall, setIsVerySmall] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mobileQuery = window.matchMedia("(max-width: 500px)");
+    const smallQuery = window.matchMedia("(max-width: 380px)");
 
-    setIsMobile(mediaQuery.matches);
+    setIsMobile(mobileQuery.matches);
+    setIsVerySmall(smallQuery.matches);
 
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
+    const handleMobile = (e) => setIsMobile(e.matches);
+    const handleSmall = (e) => setIsVerySmall(e.matches);
 
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    mobileQuery.addEventListener("change", handleMobile);
+    smallQuery.addEventListener("change", handleSmall);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+      mobileQuery.removeEventListener("change", handleMobile);
+      smallQuery.removeEventListener("change", handleSmall);
     };
   }, []);
+
+  // On very small screens skip 3D entirely for performance
+  if (isVerySmall) {
+    return null;
+  }
 
   return (
     <Canvas
       frameloop="demand"
-      shadows
-      dpr={[1, 2]}
+      shadows={false}
+      dpr={[1, 1.5]}
       camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ preserveDrawingBuffer: false, antialias: false, powerPreference: "high-performance" }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
