@@ -9,25 +9,21 @@ const stats = [
     value: 9,
     suffix: "+",
     label: "Projects Completed",
-    icon: "🚀",
   },
   {
     value: 12,
     suffix: "+",
     label: "Technologies Mastered",
-    icon: "⚡",
   },
   {
     value: 6,
     suffix: " mo",
     label: "Professional Experience",
-    icon: "💼",
   },
   {
     value: 100,
     suffix: "%",
     label: "Passion for Code",
-    icon: "🔥",
   },
 ];
 
@@ -87,11 +83,6 @@ const StatCard = ({ stat, index }) => (
                     border border-[#ffffff10] hover:border-[#915eff50]
                     transition-all duration-300 hover:shadow-[0_0_30px_rgba(145,94,255,0.15)]
                     hover:-translate-y-1 min-w-[200px]">
-      {/* Icon */}
-      <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-        {stat.icon}
-      </div>
-
       {/* Counter */}
       <div className="text-[42px] font-black text-white mb-2
                       bg-gradient-to-r from-[#915eff] to-[#00cea8]
