@@ -26,12 +26,20 @@ const Experience = () => {
             <VerticalTimelineElement
               key={`experience-${index}`}
               contentStyle={{
-                background: "#1d1836",
+                background: "rgba(29, 24, 54, 0.4)",
                 color: "#fff",
+                boxShadow: `0 8px 32px 0 rgba(0, 0, 0, 0.37)`,
+                backdropFilter: "blur(8px)",
+                border: `1px solid rgba(255, 255, 255, 0.1)`,
+                borderRadius: "20px",
+                padding: "2em",
               }}
-              contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+              contentArrowStyle={{ borderRight: "7px solid  rgba(255, 255, 255, 0.1)" }}
               date={experience.date}
-              iconStyle={{ background: experience.iconBg }}
+              iconStyle={{ 
+                background: experience.iconBg,
+                boxShadow: `0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 15px ${experience.iconBg}40`
+              }}
               icon={
                 <div className="flex justify-center items-center w-full h-full">
                   <img
@@ -44,13 +52,16 @@ const Experience = () => {
               visible={true}
               position={index % 2 === 0 ? "left" : "right"}
             >
-              <div>
-                <h3 className="text-white text-[24px] font-bold">
+              <div className="relative z-10">
+                <h3 className="text-white text-[24px] font-bold tracking-tight">
                   {experience.title}
                 </h3>
                 <p
-                  className="text-secondary text-[16px] font-semibold"
-                  style={{ margin: 0 }}
+                  className="text-secondary text-[16px] font-semibold mt-1"
+                  style={{ 
+                    margin: 0,
+                    textShadow: `0 0 10px ${experience.iconBg}40`
+                  }}
                 >
                   {experience.company_name}
                 </p>

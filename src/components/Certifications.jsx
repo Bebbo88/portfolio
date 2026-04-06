@@ -4,6 +4,9 @@ import { styles } from "../styles";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { textVariant, fadeIn } from "../utils/motion";
 
+import itiLogo from "../assets/iti.jfif";
+import pharaonxLogo from "../assets/certf/logo.svg";
+
 import itiCert from "../assets/certf/certf2.jpeg";
 import pharaonxCert from "../assets/certf/certf1.PNG";
 
@@ -16,7 +19,7 @@ const certificates = [
     description:
       "Completed an intensive professional training program covering React.js, Flutter, React Native, and modern web development practices.",
     color: "from-[#915eff] to-[#5d3fd3]",
-    icon: "🎓",
+    logo: itiLogo,
     image: itiCert,
   },
   {
@@ -27,7 +30,7 @@ const certificates = [
     description:
       "Professional experience certificate from PharaonX, demonstrating skills in React.js, UI/UX implementation, and collaborative team development.",
     color: "from-[#00cea8] to-[#0094a8]",
-    icon: "💼",
+    logo: pharaonxLogo,
     image: pharaonxCert,
   },
 ];
@@ -35,28 +38,24 @@ const certificates = [
 const CertificateCard = ({ cert, index, onOpen }) => (
   <motion.div
     variants={fadeIn("up", "spring", index * 0.2, 0.7)}
-    className="group cursor-pointer"
+    className="group cursor-pointer h-full"
     onClick={() => onOpen(cert)}
   >
     <div
-      className="relative bg-tertiary rounded-2xl overflow-hidden
-                  border border-[#ffffff10] hover:border-[#915eff50]
-                  transition-all duration-300 hover:shadow-[0_0_40px_rgba(145,94,255,0.2)]
-                  hover:-translate-y-2"
+      className="relative bg-tertiary/20 backdrop-blur-lg rounded-2xl overflow-hidden
+                  border border-white/10 hover:border-[#915eff50]
+                  transition-all duration-300 hover:shadow-[0_0_40px_rgba(145,94,255,0.1)]
+                  hover:-translate-y-2 h-full flex flex-col"
     >
-      {/* Top gradient bar */}
-      <div className={`h-1.5 w-full bg-gradient-to-r ${cert.color}`} />
-
-      <div className="p-7">
+      <div className="p-8 flex flex-col h-full">
         {/* Header */}
         <div className="flex items-start justify-between gap-4 mb-5">
-          <div
-            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${cert.color}
-                          flex items-center justify-center text-2xl flex-shrink-0
-                          group-hover:scale-110 transition-transform duration-300`}
-          >
-            {cert.icon}
-          </div>
+          <img
+            src={cert.logo}
+            alt={cert.issuer}
+            className="w-12 h-12 object-contain rounded-lg flex-shrink-0
+                      group-hover:scale-110 transition-transform duration-300"
+          />
           <div className="flex-1">
             <h3 className="text-white font-bold text-[18px] leading-tight">
               {cert.title}
@@ -67,11 +66,11 @@ const CertificateCard = ({ cert, index, onOpen }) => (
           </div>
         </div>
 
-        <p className="text-secondary text-[14px] leading-relaxed mb-5">
+        <p className="text-secondary text-[14px] leading-relaxed mb-5 flex-1">
           {cert.description}
         </p>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-auto">
           <span className="text-[12px] text-secondary border border-[#ffffff15] rounded-full px-3 py-1">
             📅 {cert.date}
           </span>
@@ -137,9 +136,13 @@ const CertModal = ({ cert, onClose }) => {
             ) : (
               <div
                 className={`w-full h-52 rounded-xl mb-6 bg-gradient-to-br ${cert.color}
-                              flex items-center justify-center opacity-20`}
+                              flex items-center justify-center`}
               >
-                <span className="text-8xl">{cert.icon}</span>
+                <img
+                  src={cert.logo}
+                  alt={cert.issuer}
+                  className="w-32 h-32 object-contain opacity-20"
+                />
               </div>
             )}
 
