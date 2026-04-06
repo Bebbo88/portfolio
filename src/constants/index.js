@@ -21,6 +21,7 @@ import {
   movie,
   pharaonxImg,
   ashperoImg,
+  iti,
 } from "../assets";
 import pharaonxLogo from "../assets/certf/logo.svg";
 import admin from "../assets/admin-dashboard.png";
@@ -112,7 +113,7 @@ const experiences = [
   {
     title: "Front End & Cross Platform Trainee",
     company_name: "Information Technology Institute (ITI)",
-    icon: creator,
+    icon: iti,
     iconBg: "#383E56",
     date: "July 2025 - December 2025",
     points: [
