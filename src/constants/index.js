@@ -209,7 +209,7 @@ const projects = [
     ],
     image: ashperoImg,
     source_code_link: "https://github.com/Bebbo88",
-    live_demo_link: "", // To be added later
+    live_demo_link: "https://ashperoo.com",
   },
   {
     name: "Mawqaf Website",
